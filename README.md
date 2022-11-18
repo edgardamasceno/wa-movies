@@ -176,7 +176,7 @@ docker-compose --env-file .env.local up database
 ## TODO list
 
 - [x] Criar documentação (README)
-- [ ] Criar banco de dados containerizado
+- [x] Criar banco de dados containerizado
 - [ ] Criar boilerplate front-end
 - [ ] Criar boilerplate back-end
 - [ ] [FRONT] Implementar componente Text
