@@ -177,7 +177,7 @@ docker-compose --env-file .env.local up database
 
 - [x] Criar documentação (README)
 - [x] Criar banco de dados containerizado
-- [ ] Criar boilerplate front-end
+- [x] Criar boilerplate front-end
 - [ ] Criar boilerplate back-end
 - [ ] [FRONT] Implementar componente Text
 - [ ] [FRONT] Implementar componente Heading
@@ -287,9 +287,11 @@ npm install
 npm run start:dev
 ```
 
-5. Acesse: [http://localhost:4000/](http://localhost:8000/)
+5. Acesse: [http://localhost:4000/](http://localhost:4000/)
 
 6. Inicie o Storybook (OPCIONAL)
+
+Para visualizar e documentar os componentes do front-end desenvolvidos em ReactJS, neste projetos foi utilizado o [Storybook](https://storybook.js.org)
 
 Abra um novo terminal e na raíz do preojeto, execute:
 
@@ -298,5 +300,7 @@ cd frontend
 npm install
 npm run start:storybook
 ```
+
+7. Acesse: [http://localhost:6006/](http://localhost:6006/)
 
 [← Voltar para o sumário](#sumário)
