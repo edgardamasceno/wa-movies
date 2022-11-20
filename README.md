@@ -177,21 +177,21 @@ docker-compose --env-file .env.local up database
 
 - [x] Criar documentação (README)
 - [x] Criar banco de dados containerizado
-- [ ] Criar boilerplate front-end
-- [ ] Criar boilerplate back-end
+- [x] Criar boilerplate front-end
+- [x] Criar boilerplate back-end
 - [ ] [FRONT] Implementar componente Text
 - [ ] [FRONT] Implementar componente Heading
 - [ ] [FRONT] Implementar componente Card
-- [ ] [FRONT] Implementar componente Button
+- [x] [FRONT] Implementar componente Button
 - [ ] [FRONT] Implementar componente TextInput
 - [ ] [FRONT] Implementar componente SearchBar
 - [ ] [FRONT] Implementar componente Pagination
 - [ ] [FRONT] Implementar componente Movie
-- [ ] [BACK] Implementar endpoint de update da base de filmes
+- [x] [BACK] Implementar endpoint de update da base de filmes
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de update da base de filmes
-- [ ] [BACK] Implementar endpoint de reset da base de filmes
+- [x] [BACK] Implementar endpoint de reset da base de filmes
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de reset da base de filmes
-- [ ] [BACK] Implementar endpoint de listagem de filmes com paginação
+- [x] [BACK] Implementar endpoint de listagem de filmes com paginação
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de listagem de filmes com paginação
 - [ ] [OPT/TEST] Implementar testes
 - [ ] [OPT/DEPLOY] Realizar deploy da aplicação em cloud
@@ -204,18 +204,19 @@ docker-compose --env-file .env.local up database
 "page" : {
     "currentPage": number,
     "totalPages": number,
-    "moviesPerPage": number,
-    "movies" : [ 
-        "movie" : {
+    "itemsPerPage": number,
+    "items" : [ 
+        {
             "id" : string,
             "title" : string,
             "originalTitle" : string,
-            "originalTitleRomanized" : string,
+            "originalTitleRomanised" : string,
             "description" : string,
             "director" : string,
             "producer" : string,
-            "duration" : string,
-            "year" : Date,
+            "duration" : number,
+            "year" : number,
+            "score": number,
         },
         ...
     ]
@@ -241,8 +242,9 @@ MYSQL_DB_HOST=localhost
 NODE_ENV=development
 NODE_PORT=3000
 ENABLE_CORS=true
-FULLTEXT_SEARCH_KEYS=title, original_title, original_title_romanized, description, director, producer, year
+FULLTEXT_SEARCH_KEYS=title, original_title, original_title_romanised, description, director, producer, year
 DEFAULT_PAGINATION=10
+DEFAULT_FETCH_LIMIT=50
 ```
 
 No exemplo acima, a propriedade `FULLTEXT_SEARCH_KEYS` define que as buscas serão executadas no nome do filme, descrição, nomes do diretor e produtor e também ano de lançamento.
@@ -287,9 +289,11 @@ npm install
 npm run start:dev
 ```
 
-5. Acesse: [http://localhost:4000/](http://localhost:8000/)
+5. Acesse: [http://localhost:4000/](http://localhost:4000/)
 
 6. Inicie o Storybook (OPCIONAL)
+
+Para visualizar e documentar os componentes do front-end desenvolvidos em ReactJS, neste projetos foi utilizado o [Storybook](https://storybook.js.org)
 
 Abra um novo terminal e na raíz do preojeto, execute:
 
@@ -298,5 +302,7 @@ cd frontend
 npm install
 npm run start:storybook
 ```
+
+7. Acesse: [http://localhost:6006/](http://localhost:6006/)
 
 [← Voltar para o sumário](#sumário)
