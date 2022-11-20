@@ -14,4 +14,4 @@ import { WipeMovieDatabaseUsecaseService } from '../domain/usecases/wipe-movie-d
     WipeMovieDatabaseUsecaseService,
   ],
 })
-export class DatabaseModule {}
+export class MovieDatabaseModule {}

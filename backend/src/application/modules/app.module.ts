@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieModule } from './movie.module';
 import { Movie } from '../domain/entities/movie.entity';
-import { DatabaseModule } from './database.module';
+import { MovieDatabaseModule } from './movie-database.module';
+import '../infraestructure/database/typeorm/polifill';
 
 @Module({
   imports: [
@@ -15,10 +16,10 @@ import { DatabaseModule } from './database.module';
       database: process.env.MYSQL_DATABASE,
       entities: [Movie],
       synchronize: false,
-      logging: false,
+      logging: true,
     }),
     MovieModule,
-    DatabaseModule,
+    MovieDatabaseModule,
   ],
   controllers: [],
   providers: [],
