@@ -244,6 +244,7 @@ NODE_PORT=3000
 ENABLE_CORS=true
 FULLTEXT_SEARCH_KEYS=title, original_title, original_title_romanised, description, director, producer, year
 DEFAULT_PAGINATION=10
+DEFAULT_FETCH_LIMIT=50
 ```
 
 No exemplo acima, a propriedade `FULLTEXT_SEARCH_KEYS` define que as buscas serão executadas no nome do filme, descrição, nomes do diretor e produtor e também ano de lançamento.
