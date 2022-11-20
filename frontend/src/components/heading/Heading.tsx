@@ -9,7 +9,7 @@ export interface HeadingProps {
     asChild?: boolean;
 }
 
-export const Heading = ({ size = 'sm', weight = 'bold', children, asChild }: HeadingProps) => {
+export const Heading = ({ size = '2', weight = 'bold', children, asChild }: HeadingProps) => {
 
     const Component = asChild ? Slot : 'h2';
 
