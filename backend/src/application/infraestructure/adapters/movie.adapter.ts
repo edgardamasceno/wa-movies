@@ -9,7 +9,7 @@ export class MovieAdapter {
         id: data.id,
         title: data.title,
         originalTitle: data.originalTitle,
-        originalTitleRomanized: data.originalTitleRomanized,
+        originalTitleRomanised: data.originalTitleRomanised,
         director: data.director,
         producer: data.producer,
         description: data.description,

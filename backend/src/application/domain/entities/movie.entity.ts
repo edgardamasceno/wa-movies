@@ -14,9 +14,9 @@ export class Movie {
   @Index({ fulltext: true })
   originalTitle: string;
 
-  @Column({ name: 'original_title_romanized' })
+  @Column({ name: 'original_title_romanised' })
   @Index({ fulltext: true })
-  originalTitleRomanized: string;
+  originalTitleRomanised: string;
 
   @Column()
   @Index({ fulltext: true })
@@ -31,12 +31,17 @@ export class Movie {
   description: string;
 
   @Column()
-  @Index({ fulltext: true })
   duration: number;
 
   @Column()
   @Index({ fulltext: true })
   year: string;
+
+  @Column()
+  cover: string;
+
+  @Column()
+  banner: string;
 
   @VirtualColumn()
   score?: number;

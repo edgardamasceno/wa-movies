@@ -187,7 +187,7 @@ docker-compose --env-file .env.local up database
 - [ ] [FRONT] Implementar componente SearchBar
 - [ ] [FRONT] Implementar componente Pagination
 - [ ] [FRONT] Implementar componente Movie
-- [ ] [BACK] Implementar endpoint de update da base de filmes
+- [x] [BACK] Implementar endpoint de update da base de filmes
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de update da base de filmes
 - [ ] [BACK] Implementar endpoint de reset da base de filmes
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de reset da base de filmes
@@ -210,7 +210,7 @@ docker-compose --env-file .env.local up database
             "id" : string,
             "title" : string,
             "originalTitle" : string,
-            "originalTitleRomanized" : string,
+            "originalTitleRomanised" : string,
             "description" : string,
             "director" : string,
             "producer" : string,
@@ -242,7 +242,7 @@ MYSQL_DB_HOST=localhost
 NODE_ENV=development
 NODE_PORT=3000
 ENABLE_CORS=true
-FULLTEXT_SEARCH_KEYS=title, original_title, original_title_romanized, description, director, producer, year
+FULLTEXT_SEARCH_KEYS=title, original_title, original_title_romanised, description, director, producer, year
 DEFAULT_PAGINATION=10
 ```
 
