@@ -178,7 +178,7 @@ docker-compose --env-file .env.local up database
 - [x] Criar documentação (README)
 - [x] Criar banco de dados containerizado
 - [x] Criar boilerplate front-end
-- [ ] Criar boilerplate back-end
+- [x] Criar boilerplate back-end
 - [ ] [FRONT] Implementar componente Text
 - [ ] [FRONT] Implementar componente Heading
 - [ ] [FRONT] Implementar componente Card
@@ -204,9 +204,9 @@ docker-compose --env-file .env.local up database
 "page" : {
     "currentPage": number,
     "totalPages": number,
-    "moviesPerPage": number,
-    "movies" : [ 
-        "movie" : {
+    "itemsPerPage": number,
+    "items" : [ 
+        {
             "id" : string,
             "title" : string,
             "originalTitle" : string,
@@ -214,8 +214,9 @@ docker-compose --env-file .env.local up database
             "description" : string,
             "director" : string,
             "producer" : string,
-            "duration" : string,
-            "year" : Date,
+            "duration" : number,
+            "year" : number,
+            "score": number,
         },
         ...
     ]
