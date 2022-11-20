@@ -182,7 +182,7 @@ docker-compose --env-file .env.local up database
 - [ ] [FRONT] Implementar componente Text
 - [ ] [FRONT] Implementar componente Heading
 - [ ] [FRONT] Implementar componente Card
-- [ ] [FRONT] Implementar componente Button
+- [x] [FRONT] Implementar componente Button
 - [ ] [FRONT] Implementar componente TextInput
 - [ ] [FRONT] Implementar componente SearchBar
 - [ ] [FRONT] Implementar componente Pagination
