@@ -12,21 +12,20 @@ export class MovieController {
   async searchByTerm(
     @Query() query: any,
   ): Promise<PaginatedResponseDTO<MovieResponseDTO>> {
-    const { page, limit, term } = query;
+    let { page, limit, terms } = query;
 
-    const movies = MovieAdapter.toDTO(
-      await this.searchMovies.execute(term || '', page || 1, limit || 10),
-    );
+    page = page ? parseInt(page) : 1;
+    limit = limit ? parseInt(limit) : parseInt(process.env.DEFAULT_PAGINATION);
 
-    if (!movies) {
-      throw new NotFoundException('No movies found');
-    }
+    const result = await this.searchMovies.execute(terms || '', page, limit);
+
+    const movies = MovieAdapter.toDTO(result.movies);
 
     const pagination = new PaginatedResponseDTO<MovieResponseDTO>();
 
     pagination.items = movies;
     pagination.currentPage = page;
-    pagination.totalPages = 1;
+    pagination.totalPages = Math.ceil(result.total / limit);
     pagination.itemsPerPage = limit;
 
     return pagination;
