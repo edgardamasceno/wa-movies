@@ -189,7 +189,7 @@ docker-compose --env-file .env.local up database
 - [ ] [FRONT] Implementar componente Movie
 - [x] [BACK] Implementar endpoint de update da base de filmes
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de update da base de filmes
-- [ ] [BACK] Implementar endpoint de reset da base de filmes
+- [x] [BACK] Implementar endpoint de reset da base de filmes
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de reset da base de filmes
 - [x] [BACK] Implementar endpoint de listagem de filmes com paginação
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de listagem de filmes com paginação

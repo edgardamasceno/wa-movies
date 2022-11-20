@@ -45,14 +45,9 @@ export class UpdateMovieDatabaseUsecaseService {
     return null;
   };
 
-  execute = async (limit: number): Promise<any> => {
+  execute = async (limit: number): Promise<object> => {
     const movies = await this.fetchMovies(limit);
-
-    console.log('movies', movies);
-
     const result = await this.movieRepository.upsert(movies, []);
-
-    console.log('result', result);
-    return result;
+    return { affectedRows: result.raw.affectedRows };
   };
 }
