@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieModule } from './movie.module';
 import { Movie } from '../domain/entities/movie.entity';
+import { DatabaseModule } from './database.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { Movie } from '../domain/entities/movie.entity';
       logging: false,
     }),
     MovieModule,
+    DatabaseModule,
   ],
   controllers: [],
   providers: [],
