@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MovieModule } from './movie.module';
+import { Movie } from '../domain/entities/movie.entity';
 
 @Module({
   imports: [
@@ -10,10 +12,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DATABASE,
-      entities: [],
+      entities: [Movie],
       synchronize: false,
       logging: false,
     }),
+    MovieModule,
   ],
   controllers: [],
   providers: [],
