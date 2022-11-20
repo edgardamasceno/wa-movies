@@ -64,3 +64,24 @@ export const ButtonWithIconRight: StoryObj<ButtonRootProps> = {
     }
 } as StoryObj<ButtonRootProps>;
 
+export const ButtonWithBothSideIcons: StoryObj<ButtonRootProps> = {
+    args: {
+        children: [
+            <Button.Icon>
+                <MagnifyingGlassIcon className='text-gray-100' />
+            </Button.Icon>,
+            <Button.Button>Button with icon rigth</Button.Button>,
+            <Button.Icon>
+                <MagnifyingGlassIcon className='text-gray-100' />
+            </Button.Icon>
+        ]
+    },
+    argTypes: {
+        children: {
+            table: {
+                disable: true,
+            }
+        }
+    }
+} as StoryObj<ButtonRootProps>;
+
