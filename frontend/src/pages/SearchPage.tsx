@@ -7,33 +7,24 @@ import { SearchBar } from "../components/searchbar/SearchBar";
 import { Text } from "../components/text/Text";
 import { SearchContext } from '../contexts/SearchContext';
 
-type pageSettingsType = {
-    terms: string;
-    currentPage: number;
-    itemsPerPage: number;
-    totalPages: number;
-}
-
 export const SearchPage = () => {
 
     const [view, setView] = useState<'list' | 'grid'>('list');
 
     const { page, time, total, searchHandler } = useContext(SearchContext);
+    console.log(page);
 
-    const [pageSettings, setPageSettings] = useState<pageSettingsType>(
-        {
-            currentPage: page.currentPage,
-            itemsPerPage: page.itemsPerPage,
-            totalPages: page.totalPages,
-            terms: ''
-        }
-    );
+    const [terms, setTerms] = useState<string>('');
 
     const handleSearch = (terms: string) => {
-        if (pageSettings.terms !== terms) {
-            setPageSettings({ ...pageSettings, terms: terms });
+        if (terms !== terms) {
+            setTerms(terms);
         }
         searchHandler(terms, 1, 10);
+    }
+
+    const handlePagination = (page: number) => {
+        searchHandler(terms, page, 10);
     }
 
     return (
@@ -41,7 +32,8 @@ export const SearchPage = () => {
             <div className="w-full flex flex-col items-center">
                 <div className="lg:w-[960px] w-full flex flex-col align-middle justify-center px-4 pt-4 pb-[4px] gap-[4px] ">
                     <SearchBar onSearch={handleSearch} buttonLabel="Search" placeholder="Enter the title of a movie, director or producer..."></SearchBar>
-                    <Text size="xs" weight="thin">{total} in {time} seconds</Text>
+                    <Text size="xs" weight="thin">{total} in {time} seconds. <Text size="xs" weight="normal">Showing {page.items.length} movies.</Text></Text>
+
                 </div>
             </div>
             <div className="w-full flex flex-col items-center mt-2">
@@ -96,7 +88,7 @@ export const SearchPage = () => {
                 }
             </div>
             <div className="w-full p-4 bg-gray-50 flex align-middle justify-center">
-                <Pagination page={pageSettings.currentPage} totalPages={pageSettings.totalPages} onPageChange={console.log} />
+                <Pagination page={page.currentPage} totalPages={page.totalPages} onPageChange={handlePagination} />
             </div>
         </div>
     )

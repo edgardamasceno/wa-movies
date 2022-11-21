@@ -62,7 +62,7 @@ export const SearchProvider = (props: Props) => {
             .then(data => {
                 setPage(data);
                 setTime((new Date().getTime() - startTime) / 1000);
-                setTotal(data.items.length);
+                setTotal(data.totalItems);
             })
     }, []);
 
