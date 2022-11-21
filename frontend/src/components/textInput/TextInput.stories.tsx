@@ -6,7 +6,7 @@ export default {
     title: 'Components/TextInput',
     component: TextInput.Root,
     args: {
-        inputSize: 'medium',
+        inputsize: 'medium',
         children: [
             <TextInput.Input placeholder='placeholder' />
         ],
@@ -17,7 +17,7 @@ export default {
                 disable: true,
             }
         },
-        inputSize: {
+        inputsize: {
             control: {
                 type: 'select',
                 options: ['small', 'medium', 'large']

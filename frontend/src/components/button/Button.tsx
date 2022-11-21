@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 export interface ButtonRootProps extends InputHTMLAttributes<HTMLInputElement> {
     children: ReactNode;
-    btnSize: 'small' | 'medium' | 'large';
+    btnsize: 'small' | 'medium' | 'large';
 }
 
 export interface ButtonIconProps {
@@ -20,9 +20,9 @@ const ButtonRoot = (props: ButtonRootProps) => {
         'w-full outline-none focus-within:border-none focus-within:ring-2 focus-within:ring-blue-300',
         'hover:border-none active-within:ring-blue-300 hover:brightness-110 ',
         'transition duration-300 ease-in-out flex items-center gap-3 font-semibold',
-        { 'h-12 text-md': props.btnSize === 'large' },
-        { 'h-10 text-sm': props.btnSize === 'medium' },
-        { 'h-8 text-xs font-medium': props.btnSize === 'small' },
+        { 'h-12 text-md': props.btnsize === 'large' },
+        { 'h-10 text-sm': props.btnsize === 'medium' },
+        { 'h-8 text-xs font-medium': props.btnsize === 'small' },
     );
 
     return (

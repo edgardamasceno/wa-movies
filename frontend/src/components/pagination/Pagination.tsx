@@ -1,7 +1,5 @@
 import { clsx } from 'clsx';
 import { CaretLeftIcon, CaretRightIcon } from '@radix-ui/react-icons'
-import React from 'react';
-
 export interface PaginationProps {
     page: number;
     totalPages: number;
@@ -10,11 +8,9 @@ export interface PaginationProps {
 
 export const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
 
-    const [selectedPage, setSelectedPage] = React.useState(page);
-
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
-            setSelectedPage(page);
+            console.log(page)
             onPageChange(page);
         }
     }
@@ -34,7 +30,7 @@ export const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) 
         ),
     }
 
-    const firstPageShowed = selectedPage - 2 < 1 ? 1 : selectedPage - 2;
+    const firstPageShowed = page - 2 < 1 ? 1 : page - 2;
     const lastPageShowed = firstPageShowed + 4;
 
     const pageButtons = Array.from(
@@ -44,7 +40,7 @@ export const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) 
                 <div className={
                     clsx(
                         classes.base,
-                        `${pageNumber === selectedPage ? clsx(classes.selected) : ''}`,
+                        `${pageNumber === page ? clsx(classes.selected) : ''}`,
                         `${pageNumber <= totalPages ? clsx(classes.enabled) : clsx(classes.disabled)}`,
                     )}
                     key={pageNumber}
@@ -60,10 +56,10 @@ export const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) 
             <div className={
                 clsx(
                     classes.base,
-                    `${selectedPage > 1 ? clsx(classes.enabled) : clsx(classes.disabled)}`,
+                    `${page > 1 ? clsx(classes.enabled) : clsx(classes.disabled)}`,
                 )
             }
-                onClick={() => handlePageChange(selectedPage - 1)}
+                onClick={() => handlePageChange(page - 1)}
             >
                 <CaretLeftIcon className={'h-[25px] w-[25px]'} />
             </div>
@@ -73,10 +69,10 @@ export const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) 
             <div className={
                 clsx(
                     classes.base,
-                    `${selectedPage < totalPages ? clsx(classes.enabled) : clsx(classes.disabled)}`,
+                    `${page < totalPages ? clsx(classes.enabled) : clsx(classes.disabled)}`,
                 )
             }
-                onClick={() => handlePageChange(selectedPage + 1)}
+                onClick={() => handlePageChange(page + 1)}
             >
                 <CaretRightIcon className='h-[25px] w-[25px]' />
             </div>

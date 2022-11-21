@@ -11,28 +11,29 @@ export const SearchPage = () => {
 
     const [view, setView] = useState<'list' | 'grid'>('list');
 
-    const { page, time, total, searchHandler } = useContext(SearchContext);
-    console.log(page);
+    const { items, totalItems, totalPages, currentPage, itemsPerPage, time, searchHandler } = useContext(SearchContext);
 
     const [terms, setTerms] = useState<string>('');
+    const [page, setPage] = useState<number>(currentPage | 1);
 
     const handleSearch = (terms: string) => {
-        if (terms !== terms) {
-            setTerms(terms);
-        }
+        setTerms(terms);
+        setPage(1);
         searchHandler(terms, 1, 10);
     }
 
     const handlePagination = (page: number) => {
+        setPage(page);
         searchHandler(terms, page, 10);
+        window.scrollTo(0, 0)
     }
 
     return (
         <div className="w-full h-screen flex flex-col items-center">
             <div className="w-full flex flex-col items-center">
                 <div className="lg:w-[960px] w-full flex flex-col align-middle justify-center px-4 pt-4 pb-[4px] gap-[4px] ">
-                    <SearchBar onSearch={handleSearch} buttonLabel="Search" placeholder="Enter the title of a movie, director or producer..."></SearchBar>
-                    <Text size="xs" weight="thin">{total} in {time} seconds. <Text size="xs" weight="normal">Showing {page.items.length} movies.</Text></Text>
+                    <SearchBar onSearch={handleSearch} buttonLabel="Search" placeholder="Enter the title of a movie, director, producer or year..."></SearchBar>
+                    <Text size="xs" weight="thin">{totalItems} in {time} seconds. <Text size="xs" weight="normal">Showing {items.length} movies.</Text></Text>
 
                 </div>
             </div>
@@ -82,13 +83,13 @@ export const SearchPage = () => {
                 )
             }>
                 {
-                    page.items.map((movie) => {
+                    items.map((movie) => {
                         return <Movie {...movie} key={movie.id} />
                     })
                 }
             </div>
             <div className="w-full p-4 bg-gray-50 flex align-middle justify-center">
-                <Pagination page={page.currentPage} totalPages={page.totalPages} onPageChange={handlePagination} />
+                <Pagination page={page} totalPages={totalPages} onPageChange={handlePagination} />
             </div>
         </div>
     )
