@@ -34,7 +34,7 @@ export const SearchBar = ({ placeholder, buttonLabel, onSearch }: SearchBarProps
                     />
                     {!value ? '' :
                         <TextInput.Icon>
-                            <Cross2Icon onClick={() => setValue('')} className="text-slate-300 hover:text-blue-300" />
+                            <Cross2Icon onClick={() => setValue('')} className="text-slate-300 hover:text-slate-600" />
                         </TextInput.Icon>
                     }
                 </TextInput.Root>
