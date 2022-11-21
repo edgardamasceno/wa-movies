@@ -183,9 +183,9 @@ docker-compose --env-file .env.local up database
 - [x] [FRONT] Implementar componente Heading
 - [x] [FRONT] Implementar componente Card
 - [x] [FRONT] Implementar componente Button
-- [ ] [FRONT] Implementar componente TextInput
+- [x] [FRONT] Implementar componente TextInput
 - [ ] [FRONT] Implementar componente SearchBar
-- [ ] [FRONT] Implementar componente Pagination
+- [x] [FRONT] Implementar componente Pagination
 - [ ] [FRONT] Implementar componente Movie
 - [x] [BACK] Implementar endpoint de update da base de filmes
 - [ ] [BACK/DOC] Implementar Swagger para endpoint de update da base de filmes
