@@ -8,13 +8,7 @@ export default {
     args: {
         inputSize: 'medium',
         children: [
-            <TextInput.Icon>
-                <MagnifyingGlassIcon className='text-slate-300' />
-            </TextInput.Icon>,
-            <TextInput.Input placeholder='placeholder' />,
-            <TextInput.Icon>
-                <Cross2Icon className='text-slate-300 hover:text-blue-300' />
-            </TextInput.Icon>
+            <TextInput.Input placeholder='placeholder' />
         ],
     },
     argTypes: {
@@ -57,8 +51,8 @@ export const TextInputWithIconRight: StoryObj<TextInputRootProps> = {
         children: [
             <TextInput.Input placeholder='placeholder' />,
             <TextInput.Icon>
-                <MagnifyingGlassIcon className='text-slate-300' />
-            </TextInput.Icon>,
+                <Cross2Icon className='text-slate-300 hover:text-blue-300' />
+            </TextInput.Icon>
         ]
     },
     argTypes: {

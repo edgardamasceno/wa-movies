@@ -24,7 +24,7 @@ const TextInputRoot = (props: TextInputRootProps) => {
         {
             'h-12 text-lg': props.inputSize === 'large',
             'h-10 text-md px-2': props.inputSize === 'medium',
-            'h-8 text-sm px-1': props.inputSize === 'small',
+            'h-8 text-sm px-[8px]': props.inputSize === 'small',
         },
     );
 
