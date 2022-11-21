@@ -19,7 +19,7 @@ export interface MovieProps {
 export const Movie = ({ title, originalTitle, originalTitleRomanised, cover, banner, description, year, duration, producer, director }: MovieProps) => {
     return (
         <Card>
-            <div className="flex flex-col gap-2 justify-between">
+            <div className='flex-grow'>
                 <div
                     className={
                         clsx('w-full h-max-[350px] mt-[3px] rounded h-[350px]')
@@ -52,27 +52,24 @@ export const Movie = ({ title, originalTitle, originalTitleRomanised, cover, ban
                         </div>
                     </div>
                 </div>
-                <div className='w-full mt-[12px] px-[16px]'>
+                <div className='w-full mt-[12px] px-[16px] flex-1'>
                     <Heading asChild weight='bold' size='6'><h3>Description:</h3></Heading>
                     <Text size='md' weight='thin'>
                         <p className='text'>{description}</p>
                     </Text>
                 </div>
-                <div className="flex-1"></div>
-                <div className="align-botton">
-                    <div className='flex justify-between mt-[12px] px-[20px]'>
-                        <span>
-                            <Text size='sm' weight='bold'>Year:</Text>
-                            <Text size='sm' weight='normal'>{` ${year}`}</Text>
-                        </span>
-                        <span>
-                            <Text size='sm' weight='bold'>Duration:</Text>
-                            <Text size='sm' weight='normal'>{` ${duration} minutes`}</Text>
-                        </span>
-                    </div>
-                </div>
             </div>
-
+            <div className="flex-1"></div>
+            <div className='flex justify-between mt-[12px] px-[20px]'>
+                <span>
+                    <Text size='sm' weight='bold'>Year:</Text>
+                    <Text size='sm' weight='normal'>{` ${year}`}</Text>
+                </span>
+                <span>
+                    <Text size='sm' weight='bold'>Duration:</Text>
+                    <Text size='sm' weight='normal'>{` ${duration} minutes`}</Text>
+                </span>
+            </div>
         </Card>
     )
 }

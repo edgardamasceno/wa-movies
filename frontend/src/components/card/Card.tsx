@@ -10,6 +10,7 @@ export const Card = ({ children }: CardProps) => {
         <div className={
             clsx(
                 ' bg-gray-50 border-gray-100 border rounded py-3 px-4 h-full',
+                'flex flex-col'
             )
         }
         >

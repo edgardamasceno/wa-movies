@@ -10,7 +10,6 @@ export const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) 
 
     const handlePageChange = (page: number) => {
         if (page >= 1 && page <= totalPages) {
-            console.log(page)
             onPageChange(page);
         }
     }

@@ -17,14 +17,25 @@ export const SearchPage = () => {
     const { message, updateHandler, wipeHandler } = useContext(MovieDatabaseContext)
 
     const [terms, setTerms] = useState<string>('');
-    const [page, setPage] = useState<number>(currentPage | 1);
+    const [page, setPage] = useState<number>(currentPage | 0);
     const [updating, setUpdating] = useState<boolean>(false);
     const [wiping, setWiping] = useState<boolean>(false);
+    const [showMessage, setShowMessage] = useState<boolean>(false);
 
     useEffect(() => {
+        autoHideMessage(15)
         setUpdating(false);
         setWiping(false);
+        handleSearch('');
     }, [message]);
+
+    const autoHideMessage = (seconds: number) => {
+        const milisseconds = 1000;
+        setShowMessage(true);
+        setTimeout(() => {
+            setShowMessage(false);
+        }, seconds * milisseconds);
+    }
 
     const handleSearch = (terms: string) => {
         setTerms(terms);
@@ -40,13 +51,13 @@ export const SearchPage = () => {
 
     return (
         <div className="w-full h-screen flex flex-col items-center">
-            <div className="w-full flex flex-col items-center">
+            <div className="w-full flex flex-col items-center px-4">
                 <div className="lg:w-[960px] w-full flex flex-col align-middle justify-center pt-4 pb-[4px] gap-[4px] ">
                     <Text size="xs" weight="thin">{totalItems} movies in {time} seconds. <Text size="xs" weight="normal">Showing {items.length} movies.</Text></Text>
                     <SearchBar onSearch={handleSearch} buttonLabel="Search" placeholder="Enter the title of a movie, director, producer or year..."></SearchBar>
                 </div>
             </div>
-            <div className="w-full flex flex-col items-center mt-3">
+            <div className="w-full flex flex-col items-center mt-3 px-4">
                 <div className="lg:w-[960px] w-full flex flex-col gap-4">
                     <div className="flex justify-between gap-3">
                         <div className="gap-2 hidden lg:flex">
@@ -78,8 +89,11 @@ export const SearchPage = () => {
                             )} />
                             <Text size="sm" weight="normal">Update Database</Text>
                         </span>
-                        <span className='flex gap-2 rounded bg-red-300 py-[10px] px-[17px] cursor-pointer hover:bg-red-400 items-center'>
-                            <TrashIcon className='hover:animate-bounce' />
+                        <span onClick={() => { wipeHandler(); setWiping(true); }} className='flex gap-2 rounded bg-red-300 py-[10px] px-[17px] cursor-pointer hover:bg-red-400 items-center'>
+                            <TrashIcon className={clsx(
+                                'hover:animate-bounce',
+                                { 'animate-bounce': wiping }
+                            )} />
                             <Text size="sm" weight="normal">Wipe Database</Text>
                         </span>
                     </div>
@@ -88,9 +102,9 @@ export const SearchPage = () => {
 
             <div className={
                 clsx(
-                    "w-full flex flex-col items-center pt-4",
+                    "w-full flex flex-col items-center pt-4 px-4",
                     {
-                        "hidden": message === '',
+                        "hidden": !showMessage || !message,
                     }
                 )
             }>
@@ -103,23 +117,26 @@ export const SearchPage = () => {
                 </div>
             </div>
 
-            <div className={
-                clsx(
-                    "lg:w-[960px] w-full grid gap-3 items-center my-4",
+            <div className="flex px-4">
+                <div className={
+                    clsx(
+                        "lg:w-[960px] w-full grid gap-3 items-center my-4 grid-cols-1",
+                        {
+                            "grid-cols-1": view === 'list',
+                            "grid-cols-1 lg:grid-cols-2": view === 'grid',
+                        },
+                    )
+                }>
                     {
-                        "grid-cols-1": view === 'list',
-                        "grid-cols-2 lg:grid-cols-1": view === 'grid',
-                    },
-                )
-            }>
-                {
-                    items.map((movie) => {
-                        return <Movie {...movie} key={movie.id} />
-                    })
-                }
+                        items.map((movie) => {
+                            return <Movie {...movie} key={movie.id} />
+                        })
+                    }
+                </div>
             </div>
+            <div className="flex-1"></div>
             <div className="w-full p-4 bg-gray-50 flex align-middle justify-center">
-                <Pagination page={page} totalPages={totalPages} onPageChange={handlePagination} />
+                <Pagination page={totalPages > 0 ? page : 0} totalPages={totalPages} onPageChange={handlePagination} />
             </div>
         </div>
     )
