@@ -1,8 +1,11 @@
+import { SearchProvider } from './contexts/SearchContext';
 import { SearchPage } from './pages/SearchPage';
 import './styles/global.css';
 
 export const App = () => {
   return (
-    <SearchPage />
+    <SearchProvider>
+      <SearchPage />
+    </SearchProvider>
   )
 }
