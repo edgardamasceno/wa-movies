@@ -27,6 +27,7 @@ export class MovieController {
     pagination.currentPage = page;
     pagination.totalPages = Math.ceil(result.total / limit);
     pagination.itemsPerPage = limit;
+    pagination.totalItems = result.total;
 
     return pagination;
   }
