@@ -15,6 +15,8 @@ export class MovieAdapter {
         description: data.description,
         duration: data.duration,
         year: data.year,
+        cover: data.cover,
+        banner: data.banner,
         score: data.score,
       };
     } else if (data) {
