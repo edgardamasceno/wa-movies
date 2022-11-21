@@ -22,7 +22,7 @@ export const MovieDatabaseProvider = (props: Props) => {
         fetch(`/api/database/update`)
             .then(response => response.json())
             .then(data => {
-                setMessage(`${data.rowsAffect} movies updated.`)
+                setMessage(`${data.affectedRows} movies have been updated.`)
             })
     }, []);
 
@@ -30,7 +30,7 @@ export const MovieDatabaseProvider = (props: Props) => {
         fetch(`/api/database/wipe`)
             .then(response => response.json())
             .then(data => {
-                setMessage(`${data.deleted} movies updated.`)
+                setMessage(`${data.deleted} movies have been deleted.`)
             })
     }, []);
 
