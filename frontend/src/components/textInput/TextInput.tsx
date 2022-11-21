@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 export interface TextInputRootProps extends InputHTMLAttributes<HTMLInputElement> {
     children: ReactNode;
-    inputSize: 'small' | 'medium' | 'large';
+    inputsize: 'small' | 'medium' | 'large';
 }
 
 export interface TextInputIconProps extends InputHTMLAttributes<HTMLDivElement> {
@@ -22,9 +22,9 @@ const TextInputRoot = (props: TextInputRootProps) => {
         'transition duration-300 ease-in-out',
         'flex items-center gap-3',
         {
-            'h-12 text-lg': props.inputSize === 'large',
-            'h-10 text-md px-2': props.inputSize === 'medium',
-            'h-8 text-sm px-[8px]': props.inputSize === 'small',
+            'h-12 text-lg': props.inputsize === 'large',
+            'h-10 text-md px-2': props.inputsize === 'medium',
+            'h-8 text-sm px-[8px]': props.inputsize === 'small',
         },
     );
 
