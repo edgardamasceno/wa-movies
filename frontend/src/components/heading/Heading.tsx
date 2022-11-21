@@ -18,12 +18,12 @@ export const Heading = ({ size = '2', weight = 'bold', children, asChild }: Head
             clsx(
                 'text-slate-600 font-sans',
                 {
-                    'text-6xl': size === '1',
-                    'text-5xl': size === '2',
-                    'text-4xl': size === '3',
-                    'text-3xl': size === '4',
-                    'text-2xl': size === '5',
-                    'text-1xl': size === '6',
+                    'text-6xl mb-4': size === '1',
+                    'text-5xl mb-4': size === '2',
+                    'text-4xl mb-4': size === '3',
+                    'text-3xl mb-3': size === '4',
+                    'text-2xl mb-3': size === '5',
+                    'text-1xl mb-3': size === '6',
                     'font-thin': weight === 'thin',
                     'font-normal': weight === 'normal',
                     'font-bold': weight === 'bold',
