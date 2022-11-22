@@ -3,7 +3,6 @@ name: Deploy Storybook
 on:
   push:
     branches:
-      - develop
       - main
   
 jobs:
@@ -18,10 +17,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-
-      - name: Go to frontend dir
-        run: cd frontend
-
+          
       - name: Install Deps
         run: cd frontend && npm ci --force
 
@@ -32,3 +28,4 @@ jobs:
         run: cd frontend && npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+
