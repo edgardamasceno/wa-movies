@@ -6,29 +6,29 @@ on:
       - develop
       - main
   
-  jobs:
-    build-and-deploy:
-      runs-on: ubuntu-latest
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-        - name: Setup NodeJS
-          uses: actions/setup-node@v3
-          with:
-            node-version: 16
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-        - name: Go to frontend dir
-          run: cd frontend
+      - name: Go to frontend dir
+        run: cd frontend
 
-        - name: Install Deps
-          run: npm ci --force
+      - name: Install Deps
+        run: npm ci --force
 
-        - name: Build Storybook
-          run: npm run build-storybook
+      - name: Build Storybook
+        run: npm run build-storybook
 
-        - name: Deploy Storybook
-          run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
-          env:
-            GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy Storybook
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
