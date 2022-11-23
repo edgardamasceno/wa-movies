@@ -68,6 +68,7 @@ export class SearchMoviesUsecaseService {
       .createQueryBuilder('movie')
       .take(limit)
       .skip((page - 1) * limit)
+      .orderBy('movie.year', 'DESC')
       .getMany();
 
     const total = await this.movieRepository

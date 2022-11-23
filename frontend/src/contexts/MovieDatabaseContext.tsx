@@ -22,12 +22,12 @@ export const MovieDatabaseProvider = (props: Props) => {
         fetch(`/api/database/update`)
             .then(response => response.json())
             .then(data => {
-                setMessage(`${data.affectedRows} movies have been updated.`)
+                setMessage(`${data.updated} movies have been updated.`)
             })
     }, []);
 
     const wipeHandler = useCallback(() => {
-        fetch(`/api/database/wipe`)
+        fetch(`/api/database/wipe`, { method: 'DELETE' })
             .then(response => response.json())
             .then(data => {
                 setMessage(`${data.deleted} movies have been deleted.`)
