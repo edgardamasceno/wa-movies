@@ -16,7 +16,7 @@ import '../infraestructure/database/typeorm/polifill';
       database: process.env.MYSQL_DATABASE,
       entities: [Movie],
       synchronize: false,
-      logging: true,
+      logging: false,
     }),
     MovieModule,
     MovieDatabaseModule,
