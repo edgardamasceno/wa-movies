@@ -1,0 +1,2 @@
+import{c as o}from"./clsx.m.256e9345.js";import{j as d}from"./jsx-runtime.6c9c0287.js";const r=({children:a})=>d("div",{className:o(" bg-gray-50 border-gray-100 border rounded py-3 px-4 h-full","flex flex-col"),children:a});try{r.displayName="Card",r.__docgenInfo={description:"",displayName:"Card",props:{}},typeof STORYBOOK_REACT_CLASSES<"u"&&(STORYBOOK_REACT_CLASSES["src/components/card/Card.tsx#Card"]={docgenInfo:r.__docgenInfo,name:"Card",path:"src/components/card/Card.tsx#Card"})}catch{}export{r as C};
+//# sourceMappingURL=Card.2d45c86d.js.map
