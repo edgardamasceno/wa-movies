@@ -170,8 +170,11 @@ docker-compose --env-file .env.local up database
 
 # Implementação
 
-[← Voltar para o sumário](#sumário)
+Para documentar o front-end, foi configurado o deploy automático no GitHub Pages via GitHub Action.
 
+[Acesse: Wa Movies Storybook](https://edgardamasceno.github.io/wa-movies)
+
+[← Voltar para o sumário](#sumário)
 
 ## TODO list
 
