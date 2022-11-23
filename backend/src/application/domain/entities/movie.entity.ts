@@ -1,3 +1,4 @@
+import { type } from 'os';
 import { VirtualColumn } from 'src/application/infraestructure/database/typeorm/decorators/virtual-column.decorator';
 import { Entity, Column, Index, PrimaryColumn } from 'typeorm';
 
@@ -33,9 +34,9 @@ export class Movie {
   @Column()
   duration: number;
 
-  @Column()
+  @Column({ type: 'int' })
   @Index({ fulltext: true })
-  year: string;
+  year: number;
 
   @Column()
   cover: string;
